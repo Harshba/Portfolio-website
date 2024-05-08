@@ -185,3 +185,57 @@ ScrollReveal().reveal('.about-img,.fillter-buttons,.contact-info', { origin: "le
 ScrollReveal().reveal('.about-content,.skills', { origin: "right" });
 ScrollReveal().reveal('.allServices,.portfolio-gallery,.blog-box,footer,.img-hero', { origin: "bottom" });
 
+//database
+const firebaseConfig = {
+    apiKey: "AIzaSyAQLKb4stmb3whXlRcXqRMV0zmeTWdMfDY",
+    authDomain: "contact-me-eb92c.firebaseapp.com",
+    projectId: "contact-me-eb92c",
+    storageBucket: "contact-me-eb92c.appspot.com",
+    messagingSenderId: "96629784436",
+    appId: "1:96629784436:web:aeccec6f3faa70afbc7621"
+    //   copy your firebase config informations
+  };
+  
+  // initialize firebase
+  firebase.initializeApp(firebaseConfig);
+  
+  // reference your database
+  var contactformDB = firebase.database().ref("Contact Me");
+  
+  document.getElementById("Contact Me").addEventListener("submit", submitForm);
+  
+  function submitForm(e) {
+    e.preventDefault();
+  
+    var name = getElementVal("name");
+    var emailid = getElementVal("emailid");
+    var msgContent = getElementVal("msgContent");
+  
+    saveMessages(name, emailid, msgContent);
+  
+    //   enable alert
+    document.querySelector(".alert").style.display = "block";
+  
+    //   remove the alert
+    setTimeout(() => {
+      document.querySelector(".alert").style.display = "none";
+    }, 3000);
+  
+    //   reset the form
+    document.getElementById("ContactMe").reset();
+  }
+  
+  const saveMessages = (name, emailid, msgContent) => {
+    var newContactForm = ContactMeDB.push();
+  
+    newContactForm.set({
+      name: name,
+      emailid: emailid,
+      msgContent: msgContent,
+    });
+  };
+  
+  const getElementVal = (id) => {
+    return document.getElementById(id).value;
+  };
+
