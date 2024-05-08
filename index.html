@@ -417,20 +417,22 @@
                     <h2 class="heading">Contact Me</h2>
                     <span>get in touch with me</span>
                 </div>
-                <form action="#">
-                    <div class="input-box">
+                <form action="" id="Contact Me">
+                    <div class="input-box" id="name">
                         <input type="text" placeholder="First Name">
                         <input type="text" placeholder="Last Name">
                     </div>
-                    <input type="email" placeholder="Email">
-                    <input type="text" placeholder="Subject">
-                    <textarea name="#" id="" cols="30" rows="10">
+                    <input type="email" id="emailid" placeholder="Email">
+                    <input type="text"  id="msgContent"placeholder="Subject">
+                    <textarea name="#" id="msgContent" cols="30" rows="10">
                     </textarea>
                     <div class="formBtn">
                         <button type="submit" class="btn">Send Message</button>
                     </div>
                 </form>
             </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="./backend.js"></script>
             <div class="skills">
                 <div class="container">
                     <div class="skillBox">
