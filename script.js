@@ -210,8 +210,9 @@ const firebaseConfig = {
     var name = getElementVal("name");
     var emailid = getElementVal("emailid");
     var msgContent = getElementVal("msgContent");
+      var msgContent = getElementVal("msgContent");
   
-    saveMessages(name, emailid, msgContent);
+    saveMessages(name, emailid, msgContent,msgContent);
   
     //   enable alert
     document.querySelector(".alert").style.display = "block";
@@ -225,12 +226,13 @@ const firebaseConfig = {
     document.getElementById("ContactMe").reset();
   }
   
-  const saveMessages = (name, emailid, msgContent) => {
+  const saveMessages = (name, emailid, msgContent,msgContent) => {
     var newContactForm = ContactMeDB.push();
   
     newContactForm.set({
       name: name,
       emailid: emailid,
+      msgContent: msgContent,
       msgContent: msgContent,
     });
   };
