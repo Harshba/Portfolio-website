@@ -7,7 +7,38 @@
     list-style: none;
     scroll-behavior: smooth;
 }
+#darkMode-icon {
+    font-size: 2.4rem;
+    color: var(--white-color);
+    cursor: pointer;
+}
+#darkMode-icon {
+    color: var(--text-color);
+    opacity: .9;
+}
+#menu-icon {
+    font-size: 3.6rem;
+    color: var(--text-color);
+    display: none;
+}
+@media (max-width: 768px) {
+    #menu-icon {
+        display: block;
+    }
 
+    #darkMode-icon {
+        position: absolute;
+        right: 7rem;
+        font-size: 2.6rem;
+        color: var(--text-color);
+        margin-bottom: .1rem;
+    }
+}
+@media (max-width: 450px) {
+    #darkMode-icon {
+        right: 6rem;
+    }
+}
 :root{
     --bg-color:#e3edf7;
     --gradient-white-bg:linear-gradient(0deg,#fff 0%,#edf4fa 51%,#e5eef7 100%);
