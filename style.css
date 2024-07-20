@@ -7,6 +7,9 @@
     list-style: none;
     scroll-behavior: smooth;
 }
+.pink{
+    color:#e6006d;
+}
 .dark-mode {
     --bg-color: #0b061f;
    --text-color: #e20fe9cf;
