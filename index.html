@@ -426,7 +426,47 @@
                 <div class="main-text">
                     <h2 class="heading">Contact Me</h2>
                     <span>get in touch with me</span>
-                </div>
+                    <form id="contactForm" method="post">
+    <div class="input-box">
+        <input type="text" name="First Name" placeholder="First Name" required>
+        <input type="text" name="Last Name" placeholder="Last Name" required>
+    </div>
+    <input type="email" name="Email" placeholder="Email" required>
+    <input type="text" name="Subject" placeholder="Subject" required>
+    <textarea name="text" cols="30" rows="10" placeholder="Message" required></textarea>
+    <div class="formBtn">
+        <button type="submit" class="btn">Send Message</button>
+    </div>
+</form>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();  // Prevent default form submission
+        
+        const form = event.target;
+        const formData = new FormData(form);
+        
+        // Send form data using fetch
+        fetch('https://script.google.com/macros/s/AKfycbx-R9flxT0YdHKnGr1oLDrjieHetkMER7juMDiAzgIlhGn58MZKf8tg7CgDkaF_vQw/exec', {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.result === "success") {
+                alert("Thanks! Your response has been submitted.");  // Show success popup
+                form.reset();  // Optionally reset the form
+            } else {
+                alert("There was an issue submitting your response. Please try again.");
+            }
+        })
+        .catch(error => {
+            alert("An error occurred: " + error.message);
+        });
+    });
+</script>
+
+<!--                 </div>
                 <form  method="post" action="https://script.google.com/macros/s/AKfycbx-R9flxT0YdHKnGr1oLDrjieHetkMER7juMDiAzgIlhGn58MZKf8tg7CgDkaF_vQw/exec">
                     <div class="input-box">
                         <input type="text" name="First Name" placeholder="First Name">
@@ -441,7 +481,7 @@
                     </div>
                 </form>
             </div>
-        
+         -->
             <div class="skills">
                 <div class="container">
                     <div class="skillBox">
